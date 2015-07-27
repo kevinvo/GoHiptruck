@@ -7,6 +7,7 @@ import (
   // "io/ioutil"
   "net/http"
   // "github.com/gorilla/mux"
+  "gohiptruck/models"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {  
@@ -25,7 +26,7 @@ func Collection(w http.ResponseWriter, r *http.Request) {
     return
   }
 
-  txn, err := GetTaxon(id)
+  txn, err := models.GetTaxon(id)
   if err != nil {
     http.Error(w, http.StatusText(500), 500)
     return
